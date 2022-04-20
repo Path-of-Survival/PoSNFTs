@@ -8,9 +8,14 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_randomness_supplier",
-						"type": "address"
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -72,31 +77,6 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "_withdrawId",
-						"type": "uint256"
-					}
-				],
-				"name": "NFTWithdrawn",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
 						"name": "previousOwner",
 						"type": "address"
 					},
@@ -136,32 +116,6 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "_withdrawId",
-						"type": "uint256"
-					}
-				],
-				"name": "WithdrawRequestCancelled",
-				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "FIRST_GAME_TOKEN_ID",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -172,25 +126,6 @@
 				"name": "addAdmin",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "admins",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -236,42 +171,6 @@
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "withdrawId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes",
-						"name": "signature",
-						"type": "bytes"
-					}
-				],
-				"name": "cancelMintHash",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "token_id",
-						"type": "uint256"
-					}
-				],
-				"name": "generateMetadata",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
 					}
 				],
 				"name": "getApproved",
@@ -280,6 +179,25 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isAdmin",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -318,34 +236,11 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "quantity",
+						"name": "token_id",
 						"type": "uint256"
 					}
 				],
 				"name": "mintByAdmin",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "withdrawId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes",
-						"name": "signature",
-						"type": "bytes"
-					}
-				],
-				"name": "mintWithHash",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -358,19 +253,6 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "next_token_id",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -424,19 +306,6 @@
 			{
 				"inputs": [],
 				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "token_id",
-						"type": "uint256"
-					}
-				],
-				"name": "requestRandomness",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -725,7 +594,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TestPoSNFTRandomMetadata.sol": "TestPoSNFTRandomMetadata"
+			"contracts/templates/PoSNFT2.sol": "PoSNFT2"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -819,14 +688,6 @@
 				"dweb:/ipfs/QmWFbivarEobbqhS1go64ootVuHfVohBseerYy9FTEd1W2"
 			]
 		},
-		"@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
-			"keccak256": "0x3c07f43e60e099b3b157243b3152722e73b80eeb7985c2cd73712828d7f7da29",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://466ffb5a6e3bd65fffd996f9287ffd240ea21588a338c6efe143d94eaed014a7",
-				"dweb:/ipfs/Qmans3vvPJZcvxe9KLAPc9Xwe4TFVTJdzaQGpi62Vrhoe2"
-			]
-		},
 		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
 			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
 			"license": "MIT",
@@ -843,52 +704,20 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"contracts/IPoSNFT.sol": {
-			"keccak256": "0x01e4d1680486b2fa04c1c801e56133ee3946541cdb0b9e1a2a84539af519f0e0",
+		"contracts/access/AdminPrivileges.sol": {
+			"keccak256": "0x90b256deb7310d82e827aeb4b8ab8e268680bf5502f086b85cab572834884ea2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://581129b2f2288858544e60a9043e4cce9d212b3b9191fe3d6a9ecaa16a696b3b",
-				"dweb:/ipfs/QmWtyRELWC7fGjciF2XjsB9gKYUYVbYbUVoMvuBqQ8bmJV"
+				"bzz-raw://130983de22906565000280d50c55430582fc73b39817e12c5f04ee850142dd67",
+				"dweb:/ipfs/QmTbHZNBXrSrKPtEJHVQzB1DVCbSeMKgXdc1pnaZszpSnt"
 			]
 		},
-		"contracts/NFTMetadata_template.sol": {
-			"keccak256": "0xba59e8880ecee446ea1a8223f973d62d8e3f0b68d892c92901f99e36e4c23932",
+		"contracts/templates/PoSNFT2.sol": {
+			"keccak256": "0x0c79ebbae0479f7eddc5d295394d614e14c0b9bb196a1c55d5aaf6f8270c596e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://19c5071362952e7ef81d421fd053b13a70cf21e7935f5ab182beac16309ede77",
-				"dweb:/ipfs/QmQdGaPSqdLBNJx1D3FnP6EY1KziJYxbjkb2WkA6wPd9tD"
-			]
-		},
-		"contracts/PoSNFT.sol": {
-			"keccak256": "0x8a99df1c2010bb65e18a1dcefea698467674567123f055ec1c4681363a6ebe63",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://02d5074db4d2c2ff7d800a01ed476f3680423d895c36f0e20538b7f0145d92e8",
-				"dweb:/ipfs/Qmb4q9cEg5M9B8SyLKY1sfsPHfCoDEJhqcfjjbYrPVK1QX"
-			]
-		},
-		"contracts/TestPoSNFTRandomMetadata.sol": {
-			"keccak256": "0x3dc45e3d0f31c9f2732ae220e091c7871ba4ef785c91dc6cc27635dbd9a3121a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://1aa2da882312c0a8786ed05e20c9295b9ddd36ee7ee4863b898fa2212590a81f",
-				"dweb:/ipfs/QmerKqexKZ4nYw4KMfPmHpmrwSZP21ZkPFvtm3uRjtf8U8"
-			]
-		},
-		"contracts/cryptography/EIP712.sol": {
-			"keccak256": "0xb4d7d678ca71c0cfdeb09d32f3a49ad5cd87973391235e5e820f94e83b63df3f",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://36b9c78c95fddd026cd3eb0f4f123ee40f9f9e2a6ac84dc4b13ca0927ba391db",
-				"dweb:/ipfs/QmdykcuGusuwqthVzZ2RdiGRf3GWvinP5ErrWC3qAJK9re"
-			]
-		},
-		"contracts/rng/IPoSUintVRFv2.sol": {
-			"keccak256": "0x44d1ce48ec54a84f270f32c60bcfc9e347ab075bc4a7cc1a1bfe09efcfe500ab",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://4a0f3415f616aafdca25c8ffd099eb7543f33a4a2c586c4c6054deedcfd13109",
-				"dweb:/ipfs/QmSErMQQ7FPSKQSotTHbG2YGr1TJy1gkH8NvRdbeA4XrSk"
+				"bzz-raw://80a6e32e390ddc1e23a200145d62bc390bb8f2c5a1b61c63ceedea0d783cd0ac",
+				"dweb:/ipfs/QmQ251U1FgKsuQJXSiRaA2YfkofNB1gsU1G4Jz8Nr9Zkud"
 			]
 		}
 	},

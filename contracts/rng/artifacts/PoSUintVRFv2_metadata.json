@@ -98,14 +98,33 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address[]",
-						"name": "_consumers",
-						"type": "address[]"
+						"internalType": "address",
+						"name": "consumer",
+						"type": "address"
 					}
 				],
-				"name": "addConsumers",
+				"name": "addConsumer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "consumers",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -166,12 +185,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address[]",
-						"name": "_consumers",
-						"type": "address[]"
+						"internalType": "address",
+						"name": "consumer",
+						"type": "address"
 					}
 				],
-				"name": "removeConsumers",
+				"name": "removeConsumer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -199,19 +218,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "new_coordinator",
-						"type": "address"
-					}
-				],
-				"name": "setCoordinator",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint32",
 						"name": "new_gas_limit",
 						"type": "uint32"
@@ -231,19 +237,6 @@
 					}
 				],
 				"name": "setGasPriceLimit",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "new_link_address",
-						"type": "address"
-					}
-				],
-				"name": "setLinkAddress",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -374,11 +367,11 @@
 			]
 		},
 		"contracts/rng/PoSUintVRFv2.sol": {
-			"keccak256": "0xc777a3d0e01942b29c3a35e6b6139f974dc15b262b2699e13755bb6a273c8a5e",
+			"keccak256": "0x86e4a6a7fce9b14b9ea4eacaf085fc6364f758efd5772f5e1af828e45628e778",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://aeb297506405df0e7d16c46887af8e20b58d6d32054e7be7e6bfbc85ff57736c",
-				"dweb:/ipfs/QmRzx7YpJLCUzGvDuZzVSF2NM3PcxKBgqof7FChtuaRpBm"
+				"bzz-raw://ce5b9b3fcc92abe67691d5b60a9f4aaf07552b14dc2aad7fc10cb90b07aba350",
+				"dweb:/ipfs/Qmb9GvrrRZJjkKNEa7kHBfjTaa2NY3FbsBq2N8H1hN15HD"
 			]
 		}
 	},

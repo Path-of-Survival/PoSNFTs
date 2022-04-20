@@ -12,13 +12,13 @@ contract PoSUintVRFv2 is VRFConsumerBaseV2, Ownable, IPoSUintVRFv2
 {
     VRFCoordinatorV2Interface COORDINATOR;
     LinkTokenInterface LINKTOKEN;
-    address vrfCoordinator = 0x6A2AAd07396B36Fe02a22b33cf443582f682c82f;
-    address link_address = 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06;
+    address constant vrfCoordinator = 0x6A2AAd07396B36Fe02a22b33cf443582f682c82f;
+    address constant link_address = 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06;
     bytes32 gasKeyHash = 0xd4bb89654db74673a187bd804519e65e3f71a52bc55f11da7601a13dcf505314;
     uint32 callbackGasLimit = 100000;
     uint16 requestConfirmations = 3;
     uint64 s_subscriptionId;
-    mapping (address => bool) consumers;
+    mapping (address => bool) public consumers;
 
     mapping (uint => bytes32) request_to_data_hash;
     mapping (bytes32 => uint) random_uint;
@@ -55,32 +55,14 @@ contract PoSUintVRFv2 is VRFConsumerBaseV2, Ownable, IPoSUintVRFv2
         return random_uint[data_hash];
     }
 
-    function addConsumers(address[] memory _consumers) external onlyOwner
+    function addConsumer(address consumer) external onlyOwner
     {
-        for(uint i=0; i<_consumers.length; i++)
-        {
-            consumers[_consumers[i]] = true;
-        }
+        consumers[consumer] = true;
     }
 
-    function removeConsumers(address[] memory _consumers) external onlyOwner
+    function removeConsumer(address consumer) external onlyOwner
     {
-        for(uint i=0; i<_consumers.length; i++)
-        {
-            consumers[_consumers[i]] = false;
-        }
-    }
-
-    function setCoordinator(address new_coordinator) external onlyOwner
-    {
-        vrfCoordinator = new_coordinator;
-        COORDINATOR = VRFCoordinatorV2Interface(vrfCoordinator);
-    }
-
-    function setLinkAddress(address new_link_address) external onlyOwner
-    {
-        link_address = new_link_address;
-        LINKTOKEN = LinkTokenInterface(link_address);
+        consumers[consumer] = false;
     }
 
     function setGasLimit(uint32 new_gas_limit) external onlyOwner

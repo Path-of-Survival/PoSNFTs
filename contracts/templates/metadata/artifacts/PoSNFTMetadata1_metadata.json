@@ -6,7 +6,18 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -108,6 +119,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "addAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "to",
 						"type": "address"
 					},
@@ -145,19 +169,6 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "token_id",
-						"type": "uint256"
-					}
-				],
-				"name": "burn",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
 					}
@@ -168,6 +179,25 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isAdmin",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -201,26 +231,16 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
+						"name": "to",
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "token_id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "enum NFTMetadata.FACTION",
-						"name": "_faction",
-						"type": "uint8"
-					},
-					{
-						"internalType": "enum NFTMetadata.RARITY",
-						"name": "_rarity",
-						"type": "uint8"
+						"internalType": "uint256[]",
+						"name": "metadata",
+						"type": "uint256[]"
 					}
 				],
-				"name": "mint",
+				"name": "mintByAdmin",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -268,6 +288,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "removeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -561,7 +594,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ClanLands_TEST.sol": "ClanLandsTEST"
+			"contracts/templates/metadata/PoSNFTMetadata1.sol": "PoSNFTMetadata1"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -671,20 +704,28 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"contracts/ClanLands_TEST.sol": {
-			"keccak256": "0x3bd6f185d180e1c5cd6adff62ac3a4d8c0e587e0fa1c5755b9c641f1554e28bd",
+		"contracts/access/AdminPrivileges.sol": {
+			"keccak256": "0x90b256deb7310d82e827aeb4b8ab8e268680bf5502f086b85cab572834884ea2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://82d1ea6827a0dea582bb8f4569749c0ad67129e69c5200945e9a999e6641cfa5",
-				"dweb:/ipfs/QmZFT28RM5ZSrqzKQQQ28W2t4Y53kHSRFyhKP2vRSLaB96"
+				"bzz-raw://130983de22906565000280d50c55430582fc73b39817e12c5f04ee850142dd67",
+				"dweb:/ipfs/QmTbHZNBXrSrKPtEJHVQzB1DVCbSeMKgXdc1pnaZszpSnt"
 			]
 		},
-		"contracts/NFTMetadata_template.sol": {
-			"keccak256": "0xba59e8880ecee446ea1a8223f973d62d8e3f0b68d892c92901f99e36e4c23932",
+		"contracts/templates/metadata/NFTMetadataUint.sol": {
+			"keccak256": "0xbe16617a0d957ae67086efbf5f182a57f96fbe665c6d2dbfa30f89fd071e5412",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://19c5071362952e7ef81d421fd053b13a70cf21e7935f5ab182beac16309ede77",
-				"dweb:/ipfs/QmQdGaPSqdLBNJx1D3FnP6EY1KziJYxbjkb2WkA6wPd9tD"
+				"bzz-raw://f59217fe00bbe5b874d7136a4bea325e3aa48ec1c3dbeda83e8857d30bd1713b",
+				"dweb:/ipfs/QmZqBecZ1s3jXpQRcD8otpskYdMUpeCAG6pSD85CSuPk4w"
+			]
+		},
+		"contracts/templates/metadata/PoSNFTMetadata1.sol": {
+			"keccak256": "0x877e37bed31a5f1414aaba25e3768ab1ddfd9149f5e5102f47543f2f64f080f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d4de810c919e3003376128171dd241d621e1ab1e3d6c9062d45675698a53116c",
+				"dweb:/ipfs/QmVvfgrRJD7oM5cRym8Efde31i8NVrxfJxuBJjMSKabuE8"
 			]
 		}
 	},
